@@ -61,6 +61,7 @@ dependencies:
   searchable_dropdown_field:
     path: ../searchable_dropdown_field
   google_maps_flutter: ^2.17.1
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

@@ -407,6 +407,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter your bio'**
   String get please_enter_your_bio;
+
+  /// No description provided for @edit_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get edit_profile;
+
+  /// No description provided for @profile_and_settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile & Settings'**
+  String get profile_and_settings;
 }
 
 class _AppLocalizationsDelegate

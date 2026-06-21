@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class Paddings {
   static const EdgeInsetsGeometry kPadding10 = EdgeInsets.all(10);
+  static const EdgeInsetsGeometry kPadding8 = EdgeInsets.all(8);
   static const EdgeInsetsGeometry kPadding5 = EdgeInsets.all(5);
+  static const EdgeInsetsGeometry kPadding4 = EdgeInsets.all(4);
   static const EdgeInsetsGeometry kPadding24 = EdgeInsets.all(24);
   static const EdgeInsetsGeometry kPadding16 = EdgeInsets.all(16);
   static const EdgeInsetsGeometry kPadding0 = EdgeInsets.all(0);

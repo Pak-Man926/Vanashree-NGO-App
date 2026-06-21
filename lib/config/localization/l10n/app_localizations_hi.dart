@@ -167,4 +167,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get please_enter_your_bio => 'कृपया अपना परिचय दर्ज करें';
+
+  @override
+  String get edit_profile => 'Edit Profile';
+
+  @override
+  String get profile_and_settings => 'Profile & Settings';
 }

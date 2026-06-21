@@ -169,4 +169,10 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get please_enter_your_bio => 'कृपया आफ्नो परिचय प्रविष्ट गर्नुहोस्';
+
+  @override
+  String get edit_profile => 'Edit Profile';
+
+  @override
+  String get profile_and_settings => 'Profile & Settings';
 }

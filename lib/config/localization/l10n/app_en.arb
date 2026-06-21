@@ -64,5 +64,7 @@
   "please_select_a_country" : "Please select a country",
   "please_select_a_state" : "Please select a state",
   "please_select_a_city" : "Please select a city",
-  "please_enter_your_bio" : "Please enter your bio"
+  "please_enter_your_bio" : "Please enter your bio",
+  "edit_profile" : "Edit Profile",
+  "profile_and_settings" : "Profile & Settings"
 }
