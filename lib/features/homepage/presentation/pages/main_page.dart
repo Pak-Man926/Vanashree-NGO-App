@@ -28,8 +28,8 @@ class _MainPageState extends State<MainPage> {
       label: 'Home',
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.location_on),
-      activeIcon: Icon(Icons.location_on_outlined),
+      icon: Icon(Icons.location_on_outlined),
+      activeIcon: Icon(Icons.location_on),
       label: 'Map',
     ),
     BottomNavigationBarItem(

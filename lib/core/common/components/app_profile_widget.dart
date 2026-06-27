@@ -7,12 +7,14 @@ class CircularProfileImage extends StatelessWidget {
   final String imageUrl;
   final double size;
   final IconData errorIcon;
+  final BoxBorder? boxBorder;
 
   const CircularProfileImage({
     super.key,
     required this.imageUrl,
     this.size = 80,
-    required this.errorIcon
+    required this.errorIcon,
+    this.boxBorder,
   });
 
   @override
@@ -27,11 +29,9 @@ class CircularProfileImage extends StatelessWidget {
           width: size,
           height: size,
           decoration: BoxDecoration(
+            border: boxBorder,
             shape: BoxShape.circle,
-            image: DecorationImage(
-              image: imageProvider,
-              fit: BoxFit.cover,
-            ),
+            image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
           ),
         );
       },
@@ -57,11 +57,7 @@ class CircularProfileImage extends StatelessWidget {
             shape: BoxShape.circle,
             color: theme.primaryColor,
           ),
-          child: Icon(
-            errorIcon,
-            color: Colors.white,
-            size: size * 0.5,
-          ),
+          child: Icon(errorIcon, color: Colors.white, size: size * 0.5),
         );
       },
     );
