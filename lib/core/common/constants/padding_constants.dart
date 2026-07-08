@@ -7,6 +7,7 @@ class Paddings {
   static const EdgeInsetsGeometry kPadding4 = EdgeInsets.all(4);
   static const EdgeInsetsGeometry kPadding24 = EdgeInsets.all(24);
   static const EdgeInsetsGeometry kPadding16 = EdgeInsets.all(16);
+  static const EdgeInsetsGeometry kPadding20 = EdgeInsets.all(20);
   static const EdgeInsetsGeometry kPadding0 = EdgeInsets.all(0);
   static const EdgeInsetsGeometry kHorizontalPadding10 = EdgeInsets.symmetric(
     horizontal: 10,
