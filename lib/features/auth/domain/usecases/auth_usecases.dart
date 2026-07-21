@@ -4,6 +4,5 @@ import '../repository/auth_repository.dart';
 
 // class AuthUsecase implements UseCaseWithParams<bool> {
 //   final IAuthRepository _authRepository;
-  
 
 // }

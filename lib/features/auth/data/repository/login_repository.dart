@@ -6,7 +6,7 @@ import 'package:vanashree_ngo_application/features/auth/domain/entities/login_en
 
 import '../../domain/repository/auth_repository.dart';
 
-class AuthRepository implements IAuthRepository{
+class AuthRepository implements IAuthRepository {
   @override
   Future<Either<Failure, bool>> login(LoginEntity user) {
     throw UnimplementedError();
