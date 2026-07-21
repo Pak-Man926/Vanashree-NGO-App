@@ -58,12 +58,13 @@ dependencies:
   isar: ^3.1.0+1
   path_provider: ^2.1.5
   country_state_city_pro: ^0.0.6
-  searchable_dropdown_field:
-    git:
-      url: https://github.com/RohanshresthaGit/searchable_dropdown_field.git
+#  searchable_dropdown_field:
+#    git:
+#      url: https://github.com/RohanshresthaGit/searchable_dropdown_field.git
   google_maps_flutter: ^2.17.1
   cached_network_image: ^3.4.1
   package_info_plus: ^9.0.1
+  phosphor_icons: ^3.0.1
 
 dev_dependencies:
   flutter_test:
