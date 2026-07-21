@@ -18,25 +18,29 @@ class App extends StatelessWidget {
         final locale = localeState.value != null
             ? Locale(localeState.value!.code)
             : const Locale('en');
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: 'Vanashree',
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: const [
-            Locale('en'), // English
-            Locale('hi'), // Hindi
-            Locale('mr'), // Marathi
-          ],
-          locale: locale,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: ref.watch(themeModeProvider),
-          routerConfig: router,
+        return SafeArea(
+          top: false,
+          bottom: true,
+          child: MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: 'Vanashree',
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('en'), // English
+              Locale('hi'), // Hindi
+              Locale('mr'), // Marathi
+            ],
+            locale: locale,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: ref.watch(themeModeProvider),
+            routerConfig: router,
+          ),
         );
       },
     );
