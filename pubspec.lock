@@ -1072,9 +1072,11 @@ packages:
   searchable_dropdown_field:
     dependency: "direct main"
     description:
-      path: "../searchable_dropdown_field"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "75fe96f05cb8933ccc49555d84c896a354a8e11f"
+      url: "https://github.com/RohanshresthaGit/searchable_dropdown_field.git"
+    source: git
     version: "0.0.1"
   share_plus:
     dependency: transitive
