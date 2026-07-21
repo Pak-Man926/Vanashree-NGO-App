@@ -36,7 +36,7 @@ class SignUpView extends HookWidget {
               automaticallyImplyLeading: currentPage.value == 0,
               backgroundColor: context.theme.scaffoldBackgroundColor,
               title: Text(
-                Constants.appName,
+                "Vanashree",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w700,
                   color: context.colorScheme.primary,
@@ -47,6 +47,7 @@ class SignUpView extends HookWidget {
                   'STEP ${(currentPage.value + 1).toString().padLeft(2, '0')} / 03      ',
                   style: context.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.bold,
+                    color: context.theme.colorScheme.tertiaryContainer,
                   ),
                 ),
               ],
