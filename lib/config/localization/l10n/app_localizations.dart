@@ -177,7 +177,7 @@ abstract class AppLocalizations {
   /// No description provided for @welcome_back.
   ///
   /// In en, this message translates to:
-  /// **'welcome Back!'**
+  /// **'Welcome Back!'**
   String get welcome_back;
 
   /// No description provided for @login_message.

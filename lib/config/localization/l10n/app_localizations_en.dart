@@ -45,7 +45,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get school => 'School';
 
   @override
-  String get welcome_back => 'welcome Back!';
+  String get welcome_back => 'Welcome Back!';
 
   @override
   String get login_message =>

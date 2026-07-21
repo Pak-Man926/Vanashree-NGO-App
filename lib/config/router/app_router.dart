@@ -28,7 +28,7 @@ final router = GoRouter(
       builder: (context, state) => const LanguageView(),
     ),
     ...authRoutes,
-    ...homepageRoutes
+    ...homepageRoutes,
     // ...errorRoutes,
   ],
   errorBuilder: (context, state) => ErrorPage(message: state.error!.message),
