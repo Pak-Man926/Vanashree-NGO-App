@@ -1,0 +1,16 @@
+{
+  "hi": [
+    "edit_profile",
+    "profile_and_settings"
+  ],
+
+  "mr": [
+    "edit_profile",
+    "profile_and_settings"
+  ],
+
+  "ne": [
+    "edit_profile",
+    "profile_and_settings"
+  ]
+}
