@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
+import 'package:phosphor_icons/phosphor_icons.dart';
+import 'package:vanashree_ngo_application/core/common/components/app_bar_widget.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/home_page.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/map/presentation/map_page.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/profile/presentation/profile_page.dart';
@@ -29,42 +30,48 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Vanashree",
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-            fontWeight: FontWeight.w700,
-            color: context.colorScheme.primary,
-          ),
-        ),
+      appBar: AppBarWidget(
+        title: "Vanashree",
+        centerTitle: false,
+        backgroundColor: context.theme.scaffoldBackgroundColor,
+        actions: [const Icon(Icons.notifications_outlined)],
       ),
       body: IndexedStack(index: _currentIndex, children: _pages),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {
           setState(() {
+            //TODO: Change the state manager to riverpod
             _currentIndex = index;
           });
         },
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
+            icon: PhosphorIcon(PhosphorIcons.pottedPlant()),
+            selectedIcon: PhosphorIcon(
+              PhosphorIcons.pottedPlant(PhosphorIconsStyle.fill),
+            ),
             label: 'Dashboard',
           ),
           NavigationDestination(
-            icon: Icon(Icons.location_on_outlined),
-            selectedIcon: Icon(Icons.location_on),
+            icon: PhosphorIcon(PhosphorIcons.mapPinArea()),
+            selectedIcon: PhosphorIcon(
+              PhosphorIcons.mapPinArea(PhosphorIconsStyle.fill),
+            ),
             label: 'Map',
           ),
           NavigationDestination(
-            icon: Icon(Icons.search_outlined),
-            selectedIcon: Icon(Icons.search),
-            label: 'Search',
+            icon: PhosphorIcon(PhosphorIcons.pottedPlant()),
+            selectedIcon: PhosphorIcon(
+              PhosphorIcons.pottedPlant(PhosphorIconsStyle.fill),
+            ),
+            label: 'Feed',
           ),
           NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
+            icon: PhosphorIcon(PhosphorIcons.user()),
+            selectedIcon: PhosphorIcon(
+              PhosphorIcons.user(PhosphorIconsStyle.fill),
+            ),
             label: 'Profile',
           ),
         ],
