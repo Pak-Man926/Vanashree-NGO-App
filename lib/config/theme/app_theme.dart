@@ -16,6 +16,7 @@ class AppTheme {
   static const Color lightWarning = Color(0xFFF57C00);
   static const Color lightInfo = Color(0xFF1976D2);
   static const Color lightComplement = Color(0xFF5C7F64);
+  static const Color lightText = Color(0xFF5C2413);
 
   // Dark Mode Colors - Complementary to light
   static const Color darkBackground = Color(0xFF0F1D16);
@@ -29,6 +30,7 @@ class AppTheme {
   static const Color darkSuccess = Color(0xFF81C784);
   static const Color darkWarning = Color(0xFFFFB74D);
   static const Color darkInfo = Color(0xFF64B5F6);
+  static const Color darkText = Color(0xFF5C2413);
 
   static final ColorScheme lightColorScheme = const ColorScheme(
     brightness: Brightness.light,
@@ -50,6 +52,7 @@ class AppTheme {
     inversePrimary: darkPrimary,
     surfaceDim: Color(0xFFF1E9E0),
     surfaceBright: lightSurface,
+    tertiaryContainer: lightText,
   );
 
   static final ColorScheme darkColorScheme = const ColorScheme(

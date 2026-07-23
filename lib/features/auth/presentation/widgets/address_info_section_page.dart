@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:searchable_dropdown_field/searchable_dropdown_field.dart';
+// import 'package:searchable_dropdown_field/searchable_dropdown_field.dart';
 
 import '../../../../core/common/components/primary_button.dart';
 import '../../../../core/common/constants/app_images.dart';
@@ -10,7 +9,8 @@ import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/locator.dart';
 
 class AddressInfoSectionPage extends StatelessWidget {
-  const AddressInfoSectionPage({super.key, 
+  const AddressInfoSectionPage({
+    super.key,
     required this.formKey,
     required this.countryController,
     required this.stateController,
@@ -54,6 +54,7 @@ class AddressInfoSectionPage extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            /*
             SearchableDropdownTextField<String>(
               controller: countryController,
               items: ["Nepal", "India", "USA", "UK", "Germany", "France"],
@@ -69,6 +70,7 @@ class AddressInfoSectionPage extends StatelessWidget {
                 return null;
               },
             ),
+*/
             const Spacing.vertical(20),
             Text(
               context.l10n.state,
@@ -76,6 +78,7 @@ class AddressInfoSectionPage extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            /*
             SearchableDropdownTextField<String>(
               controller: stateController,
               items: [
@@ -97,6 +100,7 @@ class AddressInfoSectionPage extends StatelessWidget {
                 return null;
               },
             ),
+*/
             const Spacing.vertical(20),
             Text(
               context.l10n.city,
@@ -104,6 +108,7 @@ class AddressInfoSectionPage extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            /*
             SearchableDropdownTextField<String>(
               controller: cityController,
               items: [
@@ -125,6 +130,7 @@ class AddressInfoSectionPage extends StatelessWidget {
                 return null;
               },
             ),
+*/
             const Spacing.vertical(40),
             Align(
               alignment: Alignment.centerRight,
@@ -153,6 +159,7 @@ class AddressInfoSectionPage extends StatelessWidget {
                 }
               },
             ),
+            const Spacing.vertical(10),
             PrimaryButton(
               shouldElevate: false,
               backgroundColor: context.colorScheme.surfaceContainer,

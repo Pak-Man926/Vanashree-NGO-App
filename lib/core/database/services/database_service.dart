@@ -15,8 +15,7 @@ abstract class IDatabaseService {
   Future<void> close();
 }
 
-class DatabaseService
-    implements IDatabaseService {
+class DatabaseService implements IDatabaseService {
   static DatabaseService? _instance;
 
   DatabaseService._();
@@ -38,8 +37,7 @@ class DatabaseService
       return;
     }
 
-    final dir =
-        await getApplicationDocumentsDirectory();
+    final dir = await getApplicationDocumentsDirectory();
 
     _isar = await Isar.open(
       [

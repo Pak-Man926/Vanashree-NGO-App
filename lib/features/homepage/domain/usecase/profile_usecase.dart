@@ -9,6 +9,4 @@ class GetProfileUseCase {
   Future<ProfileEntity> call() {
     return repository.getProfile();
   }
-
 }
-

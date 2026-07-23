@@ -21,11 +21,11 @@ class AppStartNavigationServiceImpl implements AppStartNavigationService {
       case AppStartState.onboarding:
         return RouteNames.onboarding;
       case AppStartState.unauthenticated:
-        return RouteNames.auth.login; 
+        return RouteNames.auth.login;
       case AppStartState.authenticated:
-        return RouteNames.auth.login; 
+        return RouteNames.auth.login;
       case AppStartState.noInternet:
-        return RouteNames.auth.login; 
+        return RouteNames.auth.login;
     }
   }
 }

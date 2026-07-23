@@ -12,7 +12,7 @@ import 'package:vanashree_ngo_application/features/homepage/presentation/state/p
 import 'package:vanashree_ngo_application/features/homepage/presentation/utils/account_items.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/widgets/personal_impact_card.dart';
 
-import '../../domain/entity/personal_impact_entity.dart';
+import '../../../../../../../domain/entity/personal_impact_entity.dart';
 
 /// Basic demo UI for Profile CRUD operations.
 /// This is intentionally simple and self-contained for development/demo purposes.

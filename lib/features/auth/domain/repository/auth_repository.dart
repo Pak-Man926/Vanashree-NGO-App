@@ -4,5 +4,5 @@ import '../../../../core/error/failures.dart';
 import '../../../../core/utils/either.dart';
 
 abstract interface class IAuthRepository {
-  Future<Either<Failure, bool>> login (LoginEntity user);
+  Future<Either<Failure, bool>> login(LoginEntity user);
 }

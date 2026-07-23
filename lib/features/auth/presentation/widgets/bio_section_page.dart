@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/common/components/app_textfield.dart';
@@ -74,6 +73,7 @@ class BioSectionPage extends StatelessWidget {
                 );
               },
             ),
+            const Spacing.vertical(10),
             PrimaryButton(
               shouldElevate: false,
               backgroundColor: context.colorScheme.primary,

@@ -1,13 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:vanashree_ngo_application/features/auth/domain/entities/login_entitties.dart';
 
-enum LoginStatus {
-  intial,
-  loading,
-  authenticated,
-  unauthenticated,
-  error
-}
+enum LoginStatus { intial, loading, authenticated, unauthenticated, error }
 
 class LoginState extends Equatable {
   final LoginStatus status;
@@ -17,18 +11,18 @@ class LoginState extends Equatable {
   const LoginState({
     this.status = LoginStatus.intial,
     this.loginEntity,
-    this.errorMessage
+    this.errorMessage,
   });
 
   LoginState copyWith({
     LoginStatus? status,
     LoginEntity? loginEntity,
-    String? errorMessage
+    String? errorMessage,
   }) {
     return LoginState(
       status: status ?? this.status,
-      loginEntity: loginEntity ??  this.loginEntity,
-      errorMessage: errorMessage ?? this.errorMessage
+      loginEntity: loginEntity ?? this.loginEntity,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 

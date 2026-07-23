@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vanashree_ngo_application/core/common/components/app_textfield.dart';
@@ -11,7 +10,8 @@ import '../../../../core/common/constants/sizedbox_constants.dart';
 import '../../../../core/locator.dart';
 
 class PersonalInfoSectionPage extends StatelessWidget {
-  const PersonalInfoSectionPage({super.key, 
+  const PersonalInfoSectionPage({
+    super.key,
     required this.formKey,
     required this.nameController,
     required this.emailController,
@@ -53,6 +53,7 @@ class PersonalInfoSectionPage extends StatelessWidget {
               context.l10n.full_name,
               style: context.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
+                color: context.theme.colorScheme.tertiaryContainer,
               ),
             ),
             AppTextField(
@@ -70,6 +71,7 @@ class PersonalInfoSectionPage extends StatelessWidget {
               context.l10n.email_address,
               style: context.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
+                color: context.theme.colorScheme.tertiaryContainer,
               ),
             ),
             AppTextField(
@@ -87,6 +89,7 @@ class PersonalInfoSectionPage extends StatelessWidget {
               context.l10n.mobile_number,
               style: context.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
+                color: context.theme.colorScheme.tertiaryContainer,
               ),
             ),
             AppTextField(
@@ -156,6 +159,32 @@ class PersonalInfoSectionPage extends StatelessWidget {
                   appLog.error('Form is invalid, please correct the errors');
                 }
               },
+            ),
+            const Spacing.vertical(40),
+            Center(
+              child: RichText(
+                text: TextSpan(
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  children: [
+                    const TextSpan(text: "By continuing, you agree to our "),
+                    WidgetSpan(
+                      child: GestureDetector(
+                        onTap: () {
+                          //context.push(RouteNames.auth.signup);
+                        },
+                        child: Text(
+                          "Privacy Policy",
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const Spacing.vertical(40),
           ],

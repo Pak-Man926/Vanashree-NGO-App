@@ -69,7 +69,7 @@ class _LogInViewState extends ConsumerState<LogInView> {
           key: _formKey,
           child: SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 16.0),
-            child: Column( 
+            child: Column(
               children: [
                 SvgPicture.asset(AppIcons.loginWelcome),
                 const Spacing.vertical(24),
