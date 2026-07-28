@@ -17,6 +17,7 @@ class AppTheme {
   static const Color lightInfo = Color(0xFF1976D2);
   static const Color lightComplement = Color(0xFF5C7F64);
   static const Color lightText = Color(0xFF5C2413);
+  static const Color lightMutedText = Color(0xFF7A7A7A);
 
   // Dark Mode Colors - Complementary to light
   static const Color darkBackground = Color(0xFF0F1D16);
@@ -53,6 +54,7 @@ class AppTheme {
     surfaceDim: Color(0xFFF1E9E0),
     surfaceBright: lightSurface,
     tertiaryContainer: lightText,
+    primaryFixed: lightMutedText,
   );
 
   static final ColorScheme darkColorScheme = const ColorScheme(
