@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_icons/phosphor_icons.dart';
-import 'package:vanashree_ngo_application/core/common/components/primary_button.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/widgets/plant_info_container.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/widgets/request_button.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/widgets/status_info_container.dart';
+
 
 import '../../../../../../../../../core/common/constants/sizedbox_constants.dart';
 import '../../../../../../../../../core/extensions/build_context_extensions.dart';
@@ -62,33 +63,45 @@ class HomePage extends StatelessWidget {
                 heading: "Green Sentinel",
                 subheading: "Neem(Azadirachta indica)",
                 details: "Planted by Ananya Rao",
+                statusLabel: "WATERING",
+                statusIcon: Icons.water_drop_rounded,
+                isStatusPriority: true,
               ),
               const Spacing.vertical(10),
               const PlantInfoContainer(
                 heading: "River Guardian",
                 subheading: "Bamboo (Bambusoideae)",
                 details: "Planted by Rahul Mahra",
+                statusLabel: "HEALTHY",
+                statusIcon: Icons.check_circle_rounded,
+                isStatusPriority: false,
               ),
               const Spacing.vertical(10),
               const PlantInfoContainer(
                 heading: "Shadow Bloom",
                 subheading: "Peepal(Ficus religiosa)",
                 details: "Planted by You",
+                statusLabel: "PESTICIDE",
+                statusIcon: Icons.bug_report_rounded,
+                isStatusPriority: true,
               ),
               const Spacing.vertical(10),
               const PlantInfoContainer(
                 heading: "Silent Oak",
                 subheading: 'Indian Oak (Barringtonia acutangula)',
                 details: "Planted by Surash K.",
+                statusLabel: "GROWING",
+                statusIcon: Icons.energy_savings_leaf_rounded,
+                isStatusPriority: false,
               ),
               const Spacing.vertical(20),
               Container(
                 width: double.infinity,
-                height: 200,
+                height: 270,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: context.colorScheme.onPrimary,
-                  borderRadius: BorderRadius.circular(14),
+                  color: context.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(35),
                 ),
                 child: Center(
                   child: Column(
@@ -111,17 +124,18 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       const Spacing.vertical(10),
-                      Container(
-                        width: 160,
-                        decoration: BoxDecoration(
-                        color: context.colorScheme.primary,
-                          borderRadius: BorderRadius.circular(15)),
-                        child: MaterialButton(
-                         color: context.colorScheme.primary,
-                          textColor: context.colorScheme.surfaceBright,
-                          child: const Text("Request Seedlings"),
-                          onPressed: () {},
-                        ),
+                      // PrimaryButton(
+                      //   padding: Paddings.kVerticalPadding24,
+                      //   borderRadius: 32,
+                      //   shouldElevate: false,
+                      //   backgroundColor: context.colorScheme.primary,
+                      //   textColor: context.colorScheme.onPrimary,
+                      //   title: "Request Seedling",
+                      //   onPressed: () {},
+                      // ),
+                      RequestButton(
+                        onPressed: () {},
+                        label: "Request Seedlings",
                       ),
                     ],
                   ),
