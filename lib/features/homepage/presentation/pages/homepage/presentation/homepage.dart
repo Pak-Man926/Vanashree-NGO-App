@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_icons/phosphor_icons.dart';
 import 'package:vanashree_ngo_application/core/common/components/app_bar_widget.dart';
-import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/home_page.dart';
-import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/map/presentation/map_page.dart';
-import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/profile/presentation/profile_page.dart';
-import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/feed/presentation/search_page.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/dashboard/presentation/plants_dashboard_page.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/map_page.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/profile/presentation/profile_page.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/feed/presentation/community_feed_page.dart';
 
 import '../../../../../../core/extensions/build_context_extensions.dart';
 
@@ -19,9 +19,9 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = const [
-    HomePage(),
+    PlantsDashboard(),
     MapPage(),
-    SearchPage(),
+    CommunityFeed(),
     ProfilePage(),
   ];
 
