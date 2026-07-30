@@ -22,7 +22,6 @@ class PlantInfoContainer extends StatelessWidget {
   final IconData statusIcon;
   final bool isStatusPriority;
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
