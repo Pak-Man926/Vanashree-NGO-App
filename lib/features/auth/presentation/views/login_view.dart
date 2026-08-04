@@ -7,7 +7,6 @@ import 'package:vanashree_ngo_application/core/extensions/build_context_extensio
 
 import '../../../../core/common/components/app_textfield.dart';
 import '../../../../core/common/components/primary_button.dart';
-import '../../../../core/common/constants/app_colors.dart';
 import '../../../../core/common/constants/app_icons.dart';
 import '../../../../core/common/constants/sizedbox_constants.dart';
 import '../widgets/login_end_drawer.dart';
@@ -77,16 +76,13 @@ class _LogInViewState extends ConsumerState<LogInView> {
                   context.l10n.welcome_back,
                   style: context.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w900,
-                    color: AppColors.titleTextColor,
                   ),
                 ),
                 const Spacing.vertical(8),
                 Text(
                   context.l10n.login_message,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.bodyLarge?.copyWith(
-                    color: AppColors.bodyTextColor,
-                  ),
+                  style: context.textTheme.bodyLarge,
                 ),
                 const Spacing.vertical(16),
                 Align(
