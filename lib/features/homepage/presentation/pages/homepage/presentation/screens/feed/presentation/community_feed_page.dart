@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vanashree_ngo_application/core/common/constants/app_images.dart';
 import 'package:vanashree_ngo_application/core/extensions/build_context_extensions.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/feed/presentation/widgets/distance_estimate_widget.dart';
 
 import '../../../../../../../../../core/common/constants/sizedbox_constants.dart';
 
@@ -19,7 +20,7 @@ class CommunityFeed extends StatelessWidget {
             children: [
               //Welcome guest section
               Container(
-                height: 300,
+                height: 330,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: context.colorScheme.primary.withOpacity(0.9),
@@ -37,7 +38,7 @@ class CommunityFeed extends StatelessWidget {
                       Text(
                         "THE MOVEMENT",
                         style: context.textTheme.titleMedium!.copyWith(
-                          color: context.colorScheme.error.withOpacity(0.4),
+                          color: context.colorScheme.onPrimaryFixedVariant,
                           fontSize: 18,
                         ),
                       ),
@@ -52,7 +53,9 @@ class CommunityFeed extends StatelessWidget {
                       Text(
                         "Join 2,400+ neighbours restoring the local canopy.\nEvery seedling tracked helps us secure more native habitat.",
                         style: context.textTheme.labelLarge!.copyWith(
-                          color: context.colorScheme.secondary,
+                          color: context.colorScheme.inverseSurface.withOpacity(
+                            0.4,
+                          ),
                         ),
                         maxLines: 4,
                       ),
@@ -69,7 +72,10 @@ class CommunityFeed extends StatelessWidget {
                           child: Center(
                             child: Text(
                               "Join the movement",
-                              style: context.textTheme.bodyLarge,
+                              style: context.textTheme.labelLarge!.copyWith(
+                                color: context.colorScheme.primary,
+                                fontFamily: "Sans-Serif",
+                              ),
                             ),
                           ),
                         ),
@@ -89,7 +95,7 @@ class CommunityFeed extends StatelessWidget {
                   Text(
                     "Live Updates",
                     style: context.textTheme.labelLarge!.copyWith(
-                      color: context.colorScheme.tertiary,
+                      color: context.colorScheme.error,
                     ),
                   ),
                 ],
@@ -97,54 +103,114 @@ class CommunityFeed extends StatelessWidget {
               const Spacing.vertical(20),
               //Nearby activity section items
               Container(
-                height: 600,
                 width: double.infinity,
+                // Removed fixed height of 600 to allow the container to shrink-wrap its content
                 decoration: BoxDecoration(
-                  color:  Colors.white,
+                  color: Colors
+                      .transparent, // Let the scaffold background show through
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
                   mainAxisAlignment: .start,
                   crossAxisAlignment: .start,
                   children: [
-                    Container(
-                      height: 500,
-                      width: double.infinity,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          AppImages.seedling,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    const Spacing.vertical(20),
-                    Text("Silver Oak Sapling", style: context.textTheme.headlineSmall!.copyWith(color:context.colorScheme.onSecondary)),
-                    const Spacing.vertical(10),
-                    Text.rich(
-                      TextSpan(
+                    // 1. Image Stack
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                        16,
+                      ), // Slightly softer radius matching design
+                      child: Stack(
                         children: [
-                          TextSpan(
-                            text: "Planted by ",
-                            style: context.textTheme.labelLarge!.copyWith(
-                              color: context.colorScheme.secondary,
+                          Image.asset(
+                            AppImages.seedling,
+                            width: double.infinity,
+                            height:
+                                400, // Adjust height as needed for your screen proportions
+                            fit: BoxFit.cover,
+                          ),
+                          const Positioned(
+                            left: 16,
+                            top: 16,
+                            child: DistanceEstimate(
+                              distance: 0.8,
+                              icon: Icons
+                                  .location_on_outlined, // Outlined icon matches screenshot
                             ),
                           ),
-                          TextSpan(
-                            text: "John Doe",
-                            style: context.textTheme.labelLarge!.copyWith(
-                              color: context.colorScheme.primary,
-                            ),
-                          ),
-                          
-                          const WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        child: Icon(Icons.favorite_border_rounded, size: 16),
-                      ),
                         ],
                       ),
                     ),
-                  ]),
+                    const Spacing.vertical(16),
+
+                    // 2. Title and Action Row
+                    Row(
+                      mainAxisAlignment: .spaceBetween,
+                      crossAxisAlignment: .start,
+                      children: [
+                        // Text Column (Wrapped in Expanded so it doesn't push the icon off-screen)
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: .start,
+                            children: [
+                              Text(
+                                "Silver Oak Sapling",
+                                style: context.textTheme.titleLarge!.copyWith(
+                                  color: context
+                                      .colorScheme
+                                      .onSecondary, // Or your dark text color
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Spacing.vertical(6),
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "Planted by ",
+                                      style: context.textTheme.bodyMedium!
+                                          .copyWith(
+                                            color:
+                                                context.colorScheme.secondary,
+                                          ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          "Arjun V.", // Updated to match your screenshot
+                                      style: context.textTheme.bodyMedium!.copyWith(
+                                        color: context
+                                            .colorScheme
+                                            .onSecondary, // Darker text for the name
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        // 3. Heart Icon Button
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: context
+                                .colorScheme
+                                .surface, // The light cream/grey background
+                          ),
+                          child: Icon(
+                            Icons.favorite_border_rounded,
+                            size: 22,
+                            color: context
+                                .colorScheme
+                                .onSecondary, // Dark icon color
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
