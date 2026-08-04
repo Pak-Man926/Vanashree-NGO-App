@@ -11,33 +11,40 @@ class AppTextStyles {
     return TextTheme(
       /// Display Large (Headings): Large size (32px), bold weight, primary text color.
       /// Used for screen titles like "Begin your botanical journey."
-      displayLarge: TextStyle(
+      displayLarge: const TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 32,
         fontWeight: FontWeight.bold,
         color: AppColors.lightText,
         height: 1.2,
       ),
       displayMedium: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 45,
         fontWeight: FontWeight.w700,
         color: colorScheme.onSurface,
       ),
       displaySmall: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 36,
         fontWeight: FontWeight.w700,
         color: colorScheme.onSurface,
       ),
       headlineLarge: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 32,
         fontWeight: FontWeight.w700,
         color: colorScheme.onSurface,
       ),
       headlineMedium: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 28,
         fontWeight: FontWeight.w600,
-        color: colorScheme.onSurface,
+        letterSpacing: 0.5,
+        color: colorScheme.primary,
       ),
       headlineSmall: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 24,
         fontWeight: FontWeight.w600,
         color: colorScheme.onSurface,
@@ -45,18 +52,21 @@ class AppTextStyles {
 
       /// Title Medium (Subheadings): Medium size (24px for titleLarge), semi-bold weight.
       /// Used for card titles and section headers.
-      titleLarge: TextStyle(
+      titleLarge: const TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 24,
         fontWeight: FontWeight.w600,
         color: AppColors.lightText,
       ),
       titleMedium: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 16,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.15,
         color: colorScheme.onSurface,
       ),
       titleSmall: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 14,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.1,
@@ -64,7 +74,8 @@ class AppTextStyles {
       ),
 
       /// Body Large: Standard size (16px), regular weight, primary text color.
-      bodyLarge: TextStyle(
+      bodyLarge: const TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 16,
         fontWeight: FontWeight.normal,
         color: AppColors.lightText,
@@ -72,12 +83,14 @@ class AppTextStyles {
 
       /// Body Small/Hint: Smaller size (14px), regular weight, secondary text color.
       /// Used for input hints like "Enter your name".
-      bodyMedium: TextStyle(
+      bodyMedium: const TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 14,
         fontWeight: FontWeight.normal,
         color: AppColors.lightHint,
       ),
       bodySmall: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 12,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.4,
@@ -86,18 +99,21 @@ class AppTextStyles {
       ),
 
       /// Button Label: Medium size (16px), semi-bold, white text.
-      labelLarge: TextStyle(
+      labelLarge: const TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 16,
         fontWeight: FontWeight.w600,
         color: AppColors.lightSurface,
       ),
       labelMedium: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 12,
         fontWeight: FontWeight.w700,
         letterSpacing: 0.5,
         color: colorScheme.primary,
       ),
       labelSmall: TextStyle(
+        fontFamily: 'Manrope',
         fontSize: 11,
         fontWeight: FontWeight.w700,
         letterSpacing: 0.5,
