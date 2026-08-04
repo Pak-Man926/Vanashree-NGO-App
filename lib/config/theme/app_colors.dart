@@ -45,7 +45,7 @@ class AppColors {
 
   /// Primary Text: #1A1A1A
   /// Near-black for high legibility on headings and primary body text.
-  static const Color lightText = Color(0xFF1A1A1A);
+  static const Color lightText = Color(0xFF5C2413);
 
   /// Secondary Text: #757575
   /// Medium grey for labels, hints, and less important information.
@@ -75,7 +75,7 @@ class AppColors {
     onPrimary: lightOnPrimary,
     secondary: lightComplement,
     onSecondary: lightOnSurface,
-    tertiary: Color(0xFFBD3B3B),
+    tertiary: lightHint,
     onTertiary: lightOnPrimary,
     error: lightError,
     onError: Color(0xFFFFFFFF),
@@ -90,6 +90,7 @@ class AppColors {
     surfaceBright: lightSurface,
     tertiaryContainer: lightText,
     primaryFixed: lightMutedText,
+    onPrimaryFixedVariant: tagOrange,
   );
 
   static final ColorScheme darkColorScheme = const ColorScheme(
