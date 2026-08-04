@@ -20,11 +20,11 @@ class AppTheme {
         backgroundColor: AppColors.lightBackground,
         elevation: 0,
         scrolledUnderElevation: 4,
-        centerTitle: true,
+        centerTitle: false,
         iconTheme: IconThemeData(color: AppColors.lightPrimary),
         titleTextStyle: TextStyle(
           color: AppColors.lightText,
-          fontSize: 16,
+          fontSize: 24,
           fontWeight: FontWeight.w600,
         ),
       ),
