@@ -82,12 +82,19 @@ class _LogInViewState extends ConsumerState<LogInView> {
                 Text(
                   context.l10n.login_message,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.bodyLarge,
+                  style: context.textTheme.bodyLarge!.copyWith(
+                    color: context.colorScheme.secondary,
+                  ),
                 ),
                 const Spacing.vertical(16),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(context.l10n.email_or_mobile),
+                  child: Text(
+                    context.l10n.email_or_mobile,
+                    style: context.textTheme.bodyMedium!.copyWith(
+                      color: context.colorScheme.secondary,
+                    ),
+                  ),
                 ),
                 const Spacing.vertical(8),
                 AppTextField(
@@ -107,12 +114,19 @@ class _LogInViewState extends ConsumerState<LogInView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(context.l10n.password),
+                    Text(
+                      context.l10n.password,
+                      style: context.textTheme.bodyMedium!.copyWith(
+                        color: context.colorScheme.secondary,
+                      ),
+                    ),
                     GestureDetector(
                       onTap: () {},
                       child: Text(
                         context.l10n.forgot_password,
-                        style: context.textTheme.labelLarge,
+                        style: context.textTheme.labelLarge!.copyWith(
+                          color: context.colorScheme.primary,
+                        ),
                       ),
                     ),
                   ],
