@@ -23,16 +23,14 @@ class PlantsDashboard extends StatelessWidget {
               Text(
                 "THE LIVING ARCHIVE",
                 //textAlign: TextAlign.left,
-                style: context.textTheme.titleMedium!.copyWith(
-                  color: context.theme.colorScheme.tertiaryContainer,
-                ),
+                style: context.textTheme.bodyLarge,
               ),
               const Spacing.vertical(5),
               Text("My Plants", style: context.textTheme.displayMedium),
               const Spacing.vertical(5),
               Text(
                 "Monitoring your curated collection of native seedlings and their ecological progress.",
-                style: context.textTheme.bodyLarge,
+                style: context.textTheme.bodyMedium,
               ),
               const Spacing.vertical(15),
               const Row(
