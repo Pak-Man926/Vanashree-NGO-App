@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vanashree_ngo_application/core/extensions/build_context_extensions.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
@@ -23,6 +24,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(color: context.colorScheme.primary),
       maxLines: maxLines ?? 1,
       controller: controller,
       validator: validator,
