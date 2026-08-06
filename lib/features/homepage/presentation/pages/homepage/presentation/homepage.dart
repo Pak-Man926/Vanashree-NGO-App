@@ -1,3 +1,4 @@
+import 'package:double_tap_to_exit/double_tap_to_exit.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_icons/phosphor_icons.dart';
 import 'package:vanashree_ngo_application/core/common/components/app_bar_widget.dart';
@@ -36,7 +37,35 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: context.theme.scaffoldBackgroundColor,
         actions: [const Icon(Icons.notifications_outlined)],
       ),
-      body: IndexedStack(index: _currentIndex, children: _pages),
+      body: DoubleTapToExit(
+        snackBar: SnackBar(
+          behavior: SnackBarBehavior.floating,
+          margin: EdgeInsets.only(
+            bottom: MediaQuery.sizeOf(context).height - 160,
+            left: 24,
+            right: 24,
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          backgroundColor: context.colorScheme.secondary,
+          content: Row(
+            children: [
+              Icon(Icons.info_outline, color: context.colorScheme.onSurface),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  "Press back again to exit the app",
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: context.colorScheme.onSurface,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        child: IndexedStack(index: _currentIndex, children: _pages),
+      ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {

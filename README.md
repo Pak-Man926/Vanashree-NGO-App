@@ -54,9 +54,14 @@ Below is a breakdown of the critical packages used to build this application:
 - **`dio`**: A powerful HTTP client for Dart used for network requests.
 - **`chucker_flutter`**: An interceptor that logs HTTP requests and responses, providing an in-app UI to inspect network traffic for debugging.
 
+### Configuration & Localization
+- **`flutter_dotenv`**: For loading environment variables from a `.env` file securely.
+- **`intl`**: For internationalization and localization support.
+
 ### Local Storage & Databases
 - **`isar`**: A super-fast, cross-platform NoSQL database used for persistent local data storage.
 - **`flutter_secure_storage`**: Used to securely store sensitive data (like authentication tokens) in the device's keychain/keystore.
+- **`path_provider`**: To find commonly used locations on the filesystem.
 
 ### Dependency Injection
 - **`get_it`**: A simple service locator to decouple the interface from the implementation, making testing and modularity easier.
@@ -66,12 +71,18 @@ Below is a breakdown of the critical packages used to build this application:
 - **`cached_network_image`**: For downloading, caching, and displaying images from the internet efficiently.
 - **`flutter_svg`**: To render SVG vector graphics.
 - **`google_maps_flutter`**: For rendering Google Maps inside the application.
+- **`flutter_launcher_icons`**: To generate app launcher icons.
+- **`flutter_native_splash`**: To generate native splash screens.
+- **`country_state_city_pro`**: A package providing country, state, and city pickers.
+- **`phosphor_icons`**: For using the Phosphor icon family.
+- **`double_tap_to_exit`**: For handling double tap back button to exit the application.
 
 ### Developer Tools & Utilities
 - **`device_preview`**: Allows viewing how the app looks on various device screens during development.
 - **`logger`**: A small, easy-to-use, and extensible logger for debugging.
 - **`equatable`**: Simplifies object comparison, heavily used in state models to determine if a state has changed.
 - **`connectivity_plus`**: Discovers the network connectivity state (e.g., WiFi, Mobile Data).
+- **`package_info_plus`**: To query information about the application package (version, build number, etc.).
 
 ## Getting Started
 

@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vanashree_ngo_application/config/router/route_names/route_names.dart';
 import 'package:vanashree_ngo_application/core/extensions/build_context_extensions.dart';
+import 'package:double_tap_to_exit/double_tap_to_exit.dart';
 
 import '../../../../core/common/components/app_textfield.dart';
 import '../../../../core/common/components/primary_button.dart';
@@ -47,180 +48,208 @@ class _LogInViewState extends ConsumerState<LogInView> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        appBar: AppBar(
-          iconTheme: IconThemeData(
-            color: Theme.of(context).colorScheme.primary, // or Colors.black
-          ),
-          title: Text(
-            'Vanashree',
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w700,
-              color: context.colorScheme.primary,
-            ),
-          ),
-          backgroundColor: context.theme.scaffoldBackgroundColor,
+    return DoubleTapToExit(
+      snackBar: SnackBar(
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.sizeOf(context).height - 160,
+          left: 24,
+          right: 24,
         ),
-        endDrawer: const LoginEndDrawer(),
-        body: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 16.0),
-            child: Column(
-              children: [
-                SvgPicture.asset(AppIcons.loginWelcome),
-                const Spacing.vertical(24),
-                Text(
-                  context.l10n.welcome_back,
-                  style: context.textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w900,
-                  ),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        backgroundColor: context.colorScheme.secondary,
+        content: Row(
+          children: [
+            Icon(Icons.info_outline, color: context.colorScheme.onSurface),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                "Press back again to exit the app",
+                style: context.textTheme.bodyMedium?.copyWith(
+                  color: context.colorScheme.onSurface,
+                  fontWeight: FontWeight.w600,
                 ),
-                const Spacing.vertical(8),
-                Text(
-                  context.l10n.login_message,
-                  textAlign: TextAlign.center,
-                  style: context.textTheme.bodyLarge!.copyWith(
-                    color: context.colorScheme.secondary,
+              ),
+            ),
+          ],
+        ),
+      ),
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          appBar: AppBar(
+            iconTheme: IconThemeData(
+              color: Theme.of(context).colorScheme.primary, // or Colors.black
+            ),
+            title: Text(
+              'Vanashree',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.w700,
+                color: context.colorScheme.primary,
+              ),
+            ),
+            backgroundColor: context.theme.scaffoldBackgroundColor,
+          ),
+          endDrawer: const LoginEndDrawer(),
+          body: Form(
+            key: _formKey,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 16.0),
+              child: Column(
+                children: [
+                  SvgPicture.asset(AppIcons.loginWelcome),
+                  const Spacing.vertical(24),
+                  Text(
+                    context.l10n.welcome_back,
+                    style: context.textTheme.headlineMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
-                ),
-                const Spacing.vertical(16),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    context.l10n.email_or_mobile,
-                    style: context.textTheme.bodyMedium!.copyWith(
+                  const Spacing.vertical(8),
+                  Text(
+                    context.l10n.login_message,
+                    textAlign: TextAlign.center,
+                    style: context.textTheme.bodyLarge!.copyWith(
                       color: context.colorScheme.secondary,
                     ),
                   ),
-                ),
-                const Spacing.vertical(8),
-                AppTextField(
-                  controller: _emailOrPhoneController,
-                  hintText: 'name@forest.org',
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return context
-                          .l10n
-                          .please_enter_your_email_or_mobile_number;
-                    }
-
-                    return null;
-                  },
-                ),
-                const Spacing.vertical(32),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      context.l10n.password,
+                  const Spacing.vertical(16),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      context.l10n.email_or_mobile,
                       style: context.textTheme.bodyMedium!.copyWith(
                         color: context.colorScheme.secondary,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        context.l10n.forgot_password,
-                        style: context.textTheme.labelLarge!.copyWith(
-                          color: context.colorScheme.primary,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const Spacing.vertical(8),
-                ValueListenableBuilder(
-                  valueListenable: _isPasswordVisible,
-                  builder: (context, passwordVisible, child) {
-                    return AppTextField(
-                      controller: _passwordController,
-                      isObsecure: passwordVisible,
-                      hintText: '********',
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          passwordVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                        ),
-                        onPressed: () {
-                          _togglePasswordVisibility();
-                        },
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return context.l10n.please_enter_your_password;
-                        }
-                        if (value.length < 6) {
-                          return context
-                              .l10n
-                              .password_must_be_at_least_6_charecters_long;
-                        }
-                        return null;
-                      },
-                    );
-                  },
-                ),
-                const Spacing.vertical(32),
-                PrimaryButton(
-                  backgroundColor: context.colorScheme.primary,
-                  textColor: context.colorScheme.onPrimary,
-                  title: context.l10n.sign_in,
-                  suffixIcon: Icons.arrow_forward,
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      FocusScope.of(context).unfocus();
-                      context.go(RouteNames.homepage.main);
-                      // Process login
-                    }
-                  },
-                ),
-                const Spacing.vertical(32),
-                Text(context.l10n.or_continue_with),
-                const Spacing.vertical(32),
-                const Row(
-                  spacing: 32,
-                  children: [
-                    Expanded(
-                      child: LoginSecondaryButton(
-                        text: "Ecosystem",
-                        iconPath: AppIcons.leafIcon,
-                      ),
-                    ),
-                    Expanded(
-                      child: LoginSecondaryButton(
-                        text: "Guardian",
-                        iconPath: AppIcons.cloudIcon,
-                      ),
-                    ),
-                  ],
-                ),
-                const Spacing.vertical(40),
-                RichText(
-                  text: TextSpan(
-                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const Spacing.vertical(8),
+                  AppTextField(
+                    controller: _emailOrPhoneController,
+                    hintText: 'name@forest.org',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return context
+                            .l10n
+                            .please_enter_your_email_or_mobile_number;
+                      }
+
+                      return null;
+                    },
+                  ),
+                  const Spacing.vertical(32),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextSpan(text: context.l10n.new_to_vanashree),
-                      WidgetSpan(
-                        child: GestureDetector(
-                          onTap: () {
-                            context.push(RouteNames.auth.signup);
-                          },
-                          child: Text(
-                            context.l10n.sign_up_for_an_account,
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontWeight: FontWeight.w700,
-                            ),
+                      Text(
+                        context.l10n.password,
+                        style: context.textTheme.bodyMedium!.copyWith(
+                          color: context.colorScheme.secondary,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          context.l10n.forgot_password,
+                          style: context.textTheme.labelLarge!.copyWith(
+                            color: context.colorScheme.primary,
                           ),
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                  const Spacing.vertical(8),
+                  ValueListenableBuilder(
+                    valueListenable: _isPasswordVisible,
+                    builder: (context, passwordVisible, child) {
+                      return AppTextField(
+                        controller: _passwordController,
+                        isObsecure: passwordVisible,
+                        hintText: '********',
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            _togglePasswordVisibility();
+                          },
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return context.l10n.please_enter_your_password;
+                          }
+                          if (value.length < 6) {
+                            return context
+                                .l10n
+                                .password_must_be_at_least_6_charecters_long;
+                          }
+                          return null;
+                        },
+                      );
+                    },
+                  ),
+                  const Spacing.vertical(32),
+                  PrimaryButton(
+                    backgroundColor: context.colorScheme.primary,
+                    textColor: context.colorScheme.onPrimary,
+                    title: context.l10n.sign_in,
+                    suffixIcon: Icons.arrow_forward,
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        FocusScope.of(context).unfocus();
+                        context.go(RouteNames.homepage.main);
+                        // Process login
+                      }
+                    },
+                  ),
+                  const Spacing.vertical(32),
+                  Text(context.l10n.or_continue_with),
+                  const Spacing.vertical(32),
+                  const Row(
+                    spacing: 32,
+                    children: [
+                      Expanded(
+                        child: LoginSecondaryButton(
+                          text: "Ecosystem",
+                          iconPath: AppIcons.leafIcon,
+                        ),
+                      ),
+                      Expanded(
+                        child: LoginSecondaryButton(
+                          text: "Guardian",
+                          iconPath: AppIcons.cloudIcon,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Spacing.vertical(40),
+                  RichText(
+                    text: TextSpan(
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      children: [
+                        TextSpan(text: context.l10n.new_to_vanashree),
+                        WidgetSpan(
+                          child: GestureDetector(
+                            onTap: () {
+                              context.push(RouteNames.auth.signup);
+                            },
+                            child: Text(
+                              context.l10n.sign_up_for_an_account,
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
