@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:vanashree_ngo_application/core/common/constants/sizedbox_constants.dart";
 import "../../../../../../../../../../core/extensions/build_context_extensions.dart";
 
 class DistanceEstimate extends StatelessWidget {
@@ -32,9 +33,9 @@ class DistanceEstimate extends StatelessWidget {
                 .colorScheme
                 .onSecondary, // Darker color to match screenshot
           ),
-          const SizedBox(width: 4),
+          const Spacing.horizontal(4), // Small space between icon and text
           Text(
-            "${distance.toStringAsFixed(1)}km away", // Removed space before 'km' to match screenshot
+            "${distance.toStringAsFixed(1)}km away",
             style: context.textTheme.labelMedium!.copyWith(
               color: context.colorScheme.onSecondary,
               fontWeight: FontWeight.w600,
