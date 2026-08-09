@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_icons/phosphor_icons.dart';
-import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/widgets/plant_info_container.dart';
-import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/widgets/request_button.dart';
-import 'package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/widgets/status_info_container.dart';
-
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/dashboard/presentation/widgets/plant_info_container.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/dashboard/presentation/widgets/request_button.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/dashboard/presentation/widgets/status_info_container.dart';
 
 import '../../../../../../../../../core/common/constants/sizedbox_constants.dart';
 import '../../../../../../../../../core/extensions/build_context_extensions.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class PlantsDashboard extends StatelessWidget {
+  const PlantsDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +23,14 @@ class HomePage extends StatelessWidget {
               Text(
                 "THE LIVING ARCHIVE",
                 //textAlign: TextAlign.left,
-                style: context.textTheme.titleMedium!.copyWith(
-                  color: context.theme.colorScheme.tertiaryContainer,
-                ),
+                style: context.textTheme.bodyLarge,
               ),
               const Spacing.vertical(5),
               Text("My Plants", style: context.textTheme.displayMedium),
               const Spacing.vertical(5),
               Text(
                 "Monitoring your curated collection of native seedlings and their ecological progress.",
-                style: context.textTheme.bodyLarge,
+                style: context.textTheme.bodyMedium,
               ),
               const Spacing.vertical(15),
               const Row(

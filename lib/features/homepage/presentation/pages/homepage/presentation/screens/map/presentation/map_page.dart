@@ -41,24 +41,15 @@ class _MapPageState extends State<MapPage> {
     });
   }
 
-  void _goToKathmandu() {
-    _controller?.animateCamera(
-      CameraUpdate.newLatLngZoom(const LatLng(27.7172, 85.3240), 16),
-    );
-  }
+  // void _goToKathmandu() {
+  //   _controller?.animateCamera(
+  //     CameraUpdate.newLatLngZoom(const LatLng(27.7172, 85.3240), 16),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Map Page'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.my_location),
-            onPressed: _goToKathmandu,
-          ),
-        ],
-      ),
       body: AppGoogleMap(
         initialLocation: _initialPosition,
         markers: _markers,

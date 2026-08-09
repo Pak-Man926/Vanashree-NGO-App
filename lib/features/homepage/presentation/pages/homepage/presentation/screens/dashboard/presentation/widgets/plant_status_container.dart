@@ -21,7 +21,7 @@ class PlantStatusContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: priority
             ? context.colorScheme.error.withOpacity(0.4)
-            : context.colorScheme.onSecondary.withOpacity(0.6),
+            : context.colorScheme.secondary,
         borderRadius: BorderRadius.circular(25),
       ),
       child: Row(

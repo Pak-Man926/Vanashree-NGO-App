@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:vanashree_ngo_application/core/common/constants/app_images.dart";
 import "package:vanashree_ngo_application/core/extensions/build_context_extensions.dart";
-import "package:vanashree_ngo_application/features/homepage/presentation/pages/dashboard/presentation/screens/homepage/presentation/widgets/plant_status_container.dart";
+import "package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/dashboard/presentation/widgets/plant_status_container.dart";
 import "../../../../../../../../../../core/common/constants/sizedbox_constants.dart";
 
 class PlantInfoContainer extends StatelessWidget {
@@ -21,7 +21,6 @@ class PlantInfoContainer extends StatelessWidget {
   final String statusLabel;
   final IconData statusIcon;
   final bool isStatusPriority;
-
 
   @override
   Widget build(BuildContext context) {
