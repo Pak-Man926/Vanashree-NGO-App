@@ -1,62 +1,80 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:vanashree_ngo_application/core/common/components/google_maps.dart';
+import 'package:phosphor_icons/phosphor_icons.dart';
+import 'package:vanashree_ngo_application/core/common/constants/sizedbox_constants.dart';
+import 'package:vanashree_ngo_application/core/extensions/build_context_extensions.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/widgets/map_action_widget.dart';
 
-class MapPage extends StatefulWidget {
+class MapPage extends StatelessWidget {
   const MapPage({super.key});
-
-  @override
-  State<MapPage> createState() => _MapPageState();
-}
-
-class _MapPageState extends State<MapPage> {
-  GoogleMapController? _controller;
-
-  final LatLng _initialPosition = const LatLng(27.7172, 85.3240);
-
-  Set<Marker> _markers = {};
-
-  @override
-  void initState() {
-    super.initState();
-
-    _markers = {
-      const Marker(
-        markerId: MarkerId('kathmandu'),
-        position: LatLng(27.7172, 85.3240),
-        infoWindow: InfoWindow(title: 'Kathmandu'),
-      ),
-    };
-  }
-
-  void _onMapTap(LatLng position) {
-    setState(() {
-      _markers.add(
-        Marker(
-          markerId: MarkerId(position.toString()),
-          position: position,
-          infoWindow: const InfoWindow(title: 'Selected Location'),
-        ),
-      );
-    });
-  }
-
-  // void _goToKathmandu() {
-  //   _controller?.animateCamera(
-  //     CameraUpdate.newLatLngZoom(const LatLng(27.7172, 85.3240), 16),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppGoogleMap(
-        initialLocation: _initialPosition,
-        markers: _markers,
-        onMapCreated: (controller) {
-          _controller = controller;
-        },
-        onTap: _onMapTap,
+      body: Stack(
+        children: [
+          //Base layer/map
+
+          //Overlay of gradients
+
+          //Positioned Search bar widget
+          Positioned(
+            top: 20,
+            left: 20,
+            right: 20,
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              decoration: BoxDecoration(
+                color: context.colorScheme.onPrimary,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                mainAxisAlignment: .spaceEvenly,
+                crossAxisAlignment: .center,
+                children: [
+                  Icon(
+                    Icons.search_rounded,
+                    color: context.colorScheme.secondary,
+                    size: 24,
+                  ),
+                  Text(
+                    "Search local paintings...",
+                    style: context.textTheme.headlineSmall!.copyWith(
+                      color: context.colorScheme.tertiary,
+                      fontSize: 18,
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.tune, size: 30),
+                    color: context.colorScheme.secondary,
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ),
+          //Map action buttons(Placed on the right side)
+          Positioned(
+            right: 20,
+            bottom: 320,
+            child: Column(
+              mainAxisAlignment: .spaceEvenly,
+              children: [
+                MapActionWidget(
+                  onTap: () {},
+                  icon: PhosphorIcons.stack(),
+                  background: context.colorScheme.secondary,
+                ),
+                const Spacing.vertical(10),
+                MapActionWidget(
+                  onTap: () {},
+                  icon: PhosphorIcons.crosshair(),
+                  background: context.colorScheme.secondary,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
