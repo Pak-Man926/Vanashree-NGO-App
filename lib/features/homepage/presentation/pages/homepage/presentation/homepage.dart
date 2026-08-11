@@ -46,7 +46,9 @@ class _MainPageState extends State<MainPage> {
             right: 24,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           backgroundColor: context.colorScheme.secondary,
           content: Row(
             children: [
