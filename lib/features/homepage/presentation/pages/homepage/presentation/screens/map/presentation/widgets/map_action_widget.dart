@@ -6,12 +6,12 @@ class MapActionWidget extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.icon,
-    required this.background,
+    required this.isHighlighted,
   });
 
   final VoidCallback onTap;
   final IconData icon;
-  final Color background;
+  final bool isHighlighted;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,20 @@ class MapActionWidget extends StatelessWidget {
       height: 60,
       width: 60,
       decoration: BoxDecoration(
-        color: background,
+        color: isHighlighted == true
+            ? context.colorScheme.primary
+            : context.colorScheme.surface,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Center(
-        child: Icon(icon, size: 32, color: context.colorScheme.onTertiary),)
+        child: Icon(
+          icon,
+          size: 32,
+          color: isHighlighted == true
+              ? context.colorScheme.surface
+              : context.colorScheme.primary,
+        ),
+      ),
     );
   }
 }
