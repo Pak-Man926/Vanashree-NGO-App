@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_icons/phosphor_icons.dart';
 import 'package:vanashree_ngo_application/core/common/constants/sizedbox_constants.dart';
 import 'package:vanashree_ngo_application/core/extensions/build_context_extensions.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/widgets/details_container_widget.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/widgets/map_action_widget.dart';
 
 class MapPage extends StatelessWidget {
@@ -25,7 +26,7 @@ class MapPage extends StatelessWidget {
               width: double.infinity,
               height: 50,
               decoration: BoxDecoration(
-                color: context.colorScheme.onPrimary,
+                color: context.colorScheme.surface,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
@@ -63,15 +64,25 @@ class MapPage extends StatelessWidget {
                 MapActionWidget(
                   onTap: () {},
                   icon: PhosphorIcons.stack(),
-                  background: context.colorScheme.secondary,
+                  isHighlighted: false,
                 ),
                 const Spacing.vertical(10),
                 MapActionWidget(
                   onTap: () {},
                   icon: PhosphorIcons.crosshair(),
-                  background: context.colorScheme.secondary,
+                  isHighlighted: true,
                 ),
               ],
+            ),
+          ),
+          //Details Container 
+          const Positioned(
+            bottom: 20,
+            left: 20,
+            right: 20,
+            child: DetailsContainerWidget(
+              headLine: "Vata Vriksha (Banyan)",
+              distance: "2.4",
             ),
           ),
         ],
