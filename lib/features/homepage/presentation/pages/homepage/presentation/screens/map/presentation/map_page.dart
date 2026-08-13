@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:phosphor_icons/phosphor_icons.dart';
 import 'package:vanashree_ngo_application/core/common/constants/sizedbox_constants.dart';
 import 'package:vanashree_ngo_application/core/extensions/build_context_extensions.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/widgets/details_container_widget.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/widgets/map_action_widget.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/widgets/map_layer_gradients.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/widgets/map_layer_widget.dart';
 
-class MapPage extends StatelessWidget {
+final showMarkerDetailsProvider = StateProvider.autoDispose<bool>(
+  (ref) => false,
+);
+
+class MapPage extends ConsumerWidget {
   const MapPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final showDetails = ref.watch(showMarkerDetailsProvider);
+
     return Scaffold(
       body: Stack(
         children: [
           //Base layer/map
+          buildMapLayer(
+            onMarkerTap: () {
+              ref.read(showMarkerDetailsProvider.notifier).state = !showDetails;
+            },
+          ),
 
           //Overlay of gradients
+          //buildGradients(),
 
           //Positioned Search bar widget
           Positioned(
@@ -46,7 +62,7 @@ class MapPage extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.tune, size: 30),
+                    icon: const Icon(Icons.tune, size: 30),
                     color: context.colorScheme.secondary,
                     onPressed: () {},
                   ),
@@ -75,16 +91,17 @@ class MapPage extends StatelessWidget {
               ],
             ),
           ),
-          //Details Container 
-          const Positioned(
-            bottom: 20,
-            left: 20,
-            right: 20,
-            child: DetailsContainerWidget(
-              headLine: "Vata Vriksha (Banyan)",
-              distance: "2.4",
+          //Details Container
+          if (showDetails)
+            const Positioned(
+              bottom: 20,
+              left: 20,
+              right: 20,
+              child: DetailsContainerWidget(
+                headLine: "Vata Vriksha (Banyan)",
+                distance: "2.4",
+              ),
             ),
-          ),
         ],
       ),
     );
