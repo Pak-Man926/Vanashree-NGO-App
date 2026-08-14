@@ -51,7 +51,7 @@ class MapPage extends ConsumerWidget {
                 children: [
                   Icon(
                     Icons.search_rounded,
-                    color: context.colorScheme.secondary,
+                    color: context.colorScheme.primary,
                     size: 24,
                   ),
                   Text(
@@ -63,7 +63,7 @@ class MapPage extends ConsumerWidget {
                   ),
                   IconButton(
                     icon: const Icon(Icons.tune, size: 30),
-                    color: context.colorScheme.secondary,
+                    color: context.colorScheme.primary,
                     onPressed: () {},
                   ),
                 ],

@@ -18,11 +18,11 @@ Widget buildMapLayer({required VoidCallback onMarkerTap}) {
       MarkerLayer(
         markers: [
           //Standard marker
-          Marker(
-            point: const LatLng(12.8520, 77.7070),
+          const Marker(
+            point: LatLng(12.8520, 77.7070),
             width: 30,
             height: 30,
-            child: const CustomMapDot(),
+            child: CustomMapDot(),
           ),
           //Active marker with tooltip
           Marker(
