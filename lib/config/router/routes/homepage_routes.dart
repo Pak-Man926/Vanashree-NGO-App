@@ -6,6 +6,6 @@ import '../route_names/route_names.dart';
 final homepageRoutes = [
   GoRoute(
     path: RouteNames.homepage.main,
-    builder: (context, state) => const MainPage(),
+    builder: (context, state) => const Homepage(),
   ),
 ];
