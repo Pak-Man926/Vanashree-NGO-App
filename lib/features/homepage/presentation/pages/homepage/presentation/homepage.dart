@@ -1,35 +1,31 @@
 import 'package:double_tap_to_exit/double_tap_to_exit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_icons/phosphor_icons.dart';
 import 'package:vanashree_ngo_application/core/common/components/app_bar_widget.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/dashboard/presentation/plants_dashboard_page.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/map/presentation/map_page.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/profile/presentation/profile_page.dart';
 import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/screens/feed/presentation/community_feed_page.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/providers/bottom_nav_provider.dart';
+import 'package:vanashree_ngo_application/features/homepage/presentation/pages/homepage/presentation/widgets/navigation_items.dart';
 
 import '../../../../../../core/extensions/build_context_extensions.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class Homepage extends ConsumerWidget {
+  const Homepage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentIndex = ref.watch(bottomNavProvider);
 
-class _MainPageState extends State<MainPage> {
-  int _currentIndex = 0;
+    const List<Widget> pages = [
+      PlantsDashboard(),
+      MapPage(),
+      CommunityFeed(),
+      ProfilePage(),
+    ];
 
-  final List<Widget> _pages = const [
-    PlantsDashboard(),
-    MapPage(),
-    CommunityFeed(),
-    ProfilePage(),
-  ];
-
-  //final List<BottomNavigationBarItem> _tabs = const [];
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
         title: "Vanashree",
@@ -41,7 +37,7 @@ class _MainPageState extends State<MainPage> {
         snackBar: SnackBar(
           behavior: SnackBarBehavior.floating,
           margin: EdgeInsets.only(
-            bottom: MediaQuery.sizeOf(context).height - 160,
+            bottom: MediaQuery.sizeOf(context).height - 240,
             left: 24,
             right: 24,
           ),
@@ -66,46 +62,52 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        child: IndexedStack(index: _currentIndex, children: _pages),
+        child: IndexedStack(index: currentIndex, children: pages),
       ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _currentIndex,
-        onDestinationSelected: (index) {
-          setState(() {
-            //TODO: Change the state manager to riverpod
-            _currentIndex = index;
-          });
-        },
-        destinations: [
-          NavigationDestination(
-            icon: PhosphorIcon(PhosphorIcons.pottedPlant()),
-            selectedIcon: PhosphorIcon(
-              PhosphorIcons.pottedPlant(PhosphorIconsStyle.fill),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+        decoration: BoxDecoration(
+          color: context.colorScheme.surface,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, -4),
             ),
-            label: 'Dashboard',
+          ],
+        ),
+        child: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              NavItemWidget(
+                index: 0,
+                icon: PhosphorIcons.pottedPlant(),
+                activeIcon: PhosphorIcons.pottedPlant(PhosphorIconsStyle.fill),
+                label: 'Dashboard',
+              ),
+              NavItemWidget(
+                index: 1,
+                icon: PhosphorIcons.mapPinArea(),
+                activeIcon: PhosphorIcons.mapPinArea(PhosphorIconsStyle.fill),
+                label: 'Map',
+              ),
+              NavItemWidget(
+                index: 2,
+                icon: PhosphorIcons.pottedPlant(),
+                activeIcon: PhosphorIcons.pottedPlant(PhosphorIconsStyle.fill),
+                label: 'Feed',
+              ),
+              NavItemWidget(
+                index: 3,
+                icon: PhosphorIcons.user(),
+                activeIcon: PhosphorIcons.user(PhosphorIconsStyle.fill),
+                label: 'Profile',
+              ),
+            ],
           ),
-          NavigationDestination(
-            icon: PhosphorIcon(PhosphorIcons.mapPinArea()),
-            selectedIcon: PhosphorIcon(
-              PhosphorIcons.mapPinArea(PhosphorIconsStyle.fill),
-            ),
-            label: 'Map',
-          ),
-          NavigationDestination(
-            icon: PhosphorIcon(PhosphorIcons.pottedPlant()),
-            selectedIcon: PhosphorIcon(
-              PhosphorIcons.pottedPlant(PhosphorIconsStyle.fill),
-            ),
-            label: 'Feed',
-          ),
-          NavigationDestination(
-            icon: PhosphorIcon(PhosphorIcons.user()),
-            selectedIcon: PhosphorIcon(
-              PhosphorIcons.user(PhosphorIconsStyle.fill),
-            ),
-            label: 'Profile',
-          ),
-        ],
+        ),
       ),
     );
   }
